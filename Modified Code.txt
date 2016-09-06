@@ -1,0 +1,16 @@
+int first_plane_index = 0;
+int second_plane_index = 0;
+double t = 0;
+double dist = 0;
+
+first_plane_index = r.nextInt(99);
+System.out.println("First plane index is : " + first_plane_index);
+
+second_plane_index = r.nextInt(99);
+System.out.println("Second plane index is : " + second_plane_index);
+
+t = (-1 * ((x0*vx) + (y0*vy) + (z0*vz)) / ((vx*vx) + (vy*vy) + (vz*vz)));
+System.out.println("Value of t is: " + t);
+
+dist = Math.sqrt((x0 + (t*vx))*(x0 + (t*vx)) + (y0 + (t*vy))*(y0 + (t*vy)) + (z0 + (t*vz))*(z0 + (t*vz)) );
+System.out.println("Distance between two planes is: " + dist);

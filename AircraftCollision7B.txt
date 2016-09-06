@@ -1,0 +1,84 @@
+import java.util.Random;
+
+public class Plane {
+double[] p=new double[3];
+double[] v=new double[3];
+public Plane(double[] pos, double[] vel) {
+// TODO Auto-generated constructor stub
+}
+public Plane()
+{
+// no need to initialize
+}
+public static void main(String[] args) {
+// TODO Auto-generated method stub
+int NUMBER_OF_PLANE = 100;
+Random r=new Random(); //initialize random seed
+double[] p={.1,.1,.1}; double[] v={.1,.1,.1};
+Plane[] ac= new Plane [100];
+for (int i=0; i<NUMBER_OF_PLANE; i++) {
+ac[i] = new Plane ();
+ac[i].p[0]=20*r.nextDouble();
+ac[i].p[1]=20*r.nextDouble();
+ac[i].p[2]=10*r.nextDouble();
+ac[i].v[0]=100+500*r.nextDouble();
+ac[i].v[1]=100+500*r.nextDouble();
+ac[i].v[2]=40*r.nextDouble()-20;
+}
+for (int i=0; i<NUMBER_OF_PLANE; i++) {
+System.out.println("Plane ac index=" + i +
+" p[0]="+ac[i].p[0]+
+" p[1]="+ac[i].p[1]+
+" p[2]="+ac[i].p[2]+
+" v[0]="+ac[i].v[0]+
+" v[1]="+ac[i].v[1]+
+" v[2]="+ac[i].v[2]
+);
+}
+int first_plane_index = 0;
+int second_plane_index = 0;
+double t = 0;
+double dist = 0;
+double x, y, z, x0, y0, z0 = 0; // variables for two planes' position
+double vx, vy, vz, vx0, vy0, vz0 = 0; // variables for two planes' velocity
+
+
+// first plane index
+first_plane_index = r.nextInt(99);
+System.out.println("First plane index is : " + first_plane_index);
+
+// second plane index
+second_plane_index = r.nextInt(99);
+System.out.println("Second plane index is : " + second_plane_index);
+
+// Initializing for two planes
+x = ac[first_plane_index].p[0];
+y = ac[first_plane_index].p[1];
+z = ac[first_plane_index].p[2];
+vx = ac[first_plane_index].v[0];
+vy = ac[first_plane_index].v[1];
+vz = ac[first_plane_index].v[2];
+
+x0 = ac[second_plane_index].p[0];
+y0 = ac[second_plane_index].p[1];
+z0 = ac[second_plane_index].p[2];
+vx0 = ac[second_plane_index].v[0];
+vy0 = ac[second_plane_index].v[1];
+vz0 = ac[second_plane_index].v[2];
+
+System.out.println(x); System.out.println(y); System.out.println(z); System.out.println(vx); System.out.println(vy); System.out.println(vz);
+System.out.println(x0); System.out.println(y0); System.out.println(z0); System.out.println(vx0); System.out.println(vy0); System.out.println(vz0);
+
+// Calculation for t
+t = (-1 * ((x0*vx) + (y0*vy) + (z0*vz)) / ((vx*vx) + (vy*vy) + (vz*vz)));
+System.out.println("Value of t is: " + t);
+
+// Calculation for distance
+
+// dist = Math.sqrt((x0 + (t*vx*x))*(x0 + (t*vx*x)) + (y0 + (t*vy*y))*(y0 + (t*vy*y)) + (z0 + (t*vz*z))*(z0 + (t*vz*z)) );
+dist = Math.sqrt((x0 + (t*vx))*(x0 + (t*vx)) + (y0 + (t*vy))*(y0 + (t*vy)) + (z0 + (t*vz))*(z0 + (t*vz)) );
+System.out.println("Distance between two planes is: " + dist);
+
+
+}
+}

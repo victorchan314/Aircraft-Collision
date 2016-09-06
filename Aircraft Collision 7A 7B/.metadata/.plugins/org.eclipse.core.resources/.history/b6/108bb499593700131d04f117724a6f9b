@@ -1,0 +1,24 @@
+// Point.java
+public class Point{ 
+	//double[] xyzt={0.,0.,0.,0.}; // 4 component array
+	double x,y,z,vx,vy,vz, xm, ym, zm, vxm, vym, vzm;
+	String ID;
+	public Point(double x0,double y0, double z0, double vx0, double vy0, double vz0, double xm0, double ym0, double zm0, double vxm0, double vym0, double vzm0, String ID0) {// constructor
+		x=x0;y=y0;z=z0;vx=vx0;vy=vy0;vz=vz0;xm=xm0;ym=ym0;zm=zm0;vxm=vxm0;vym=vy0;vzm=vzm0;
+		ID=ID0;
+		//velocities are in coordinates per minute
+		/*xyzt[0]=x0;
+		xyzt[1]=y;
+		xyzt[2]=z;
+		xyzt[3]=t;
+		*/
+	}
+}
+// end of Point.Java
+/*
+5.0	5.0	2.0	5.0	true
+5.0	5.0	12.0	5.0	false
+5.0	5.0	2.0	5.0	true
+5.0	5.0	2.0	5.0	false
+5.0	5.0	2.0	5.0	true
+*/
